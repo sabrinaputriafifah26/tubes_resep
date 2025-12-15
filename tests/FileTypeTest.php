@@ -7,7 +7,8 @@ class FileTypeTest extends TestCase
      * Semua file PHP pada project-resep
      */
     private $projectFiles = [
-        'index.php'
+        'index.php',
+        'pages/cari.php'
     ];
 
     /**

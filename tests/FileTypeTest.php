@@ -9,7 +9,8 @@ class FileTypeTest extends TestCase
     private $projectFiles = [
         'index.php',
         'pages/cari.php',
-        'footer.php'
+        'footer.php',
+        'header.php',
     ];
 
     /**

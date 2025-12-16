@@ -11,7 +11,8 @@ class FileTypeTest extends TestCase
         'pages/cari.php',
         'footer.php',
         'header.php',
-        'pages/home.php'
+        'pages/home.php',
+        'pages/kategori.php'
     ];
 
     /**

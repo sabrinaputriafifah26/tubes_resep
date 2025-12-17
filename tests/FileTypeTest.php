@@ -12,7 +12,8 @@ class FileTypeTest extends TestCase
         'footer.php',
         'header.php',
         'pages/home.php',
-        'pages/kategori.php'
+        'pages/kategori.php',
+        'pages/detail_resep.php'
     ];
 
     /**

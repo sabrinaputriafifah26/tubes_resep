@@ -13,7 +13,8 @@ class FileTypeTest extends TestCase
         'header.php',
         'pages/home.php',
         'pages/kategori.php',
-        'pages/detail_resep.php'
+        'pages/detail_resep.php',
+        'pages/daftar_resep.php'
     ];
 
     /**

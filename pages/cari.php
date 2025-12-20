@@ -124,3 +124,80 @@ if (form) {
     });
 }
 </script>
+<!-- ===============================
+SMART SEARCH EXPERIENCE (ADVANCED UX)
+=============================== -->
+
+<style>
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #777;
+    animation: fadeIn 0.4s ease;
+}
+
+.empty-state img {
+    width: 140px;
+    opacity: 0.85;
+    margin-bottom: 15px;
+}
+
+.empty-state h3 {
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.empty-state p {
+    font-size: 14px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+<div id="emptyState" class="empty-state" style="display:none;">
+    <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="search">
+    <h3>Mulai cari resep favoritmu</h3>
+    <p>Ketik bahan atau nama masakan untuk menemukan inspirasi masak 🍽️</p>
+</div>
+
+<script>
+// Auto focus ke input saat halaman dibuka
+const searchInput = document.querySelector('input[name="q"]');
+if (searchInput) {
+    searchInput.focus();
+}
+
+// Empty state pintar
+const hasilContainer = document.querySelector(".hasil");
+const emptyState = document.getElementById("emptyState");
+
+window.addEventListener("load", () => {
+    const hasQuery = searchInput && searchInput.value.trim() !== "";
+    const hasResult = hasilContainer && hasilContainer.children.length > 0;
+
+    if (!hasQuery && emptyState) {
+        emptyState.style.display = "block";
+    }
+
+    if (hasQuery && !hasResult && emptyState) {
+        emptyState.querySelector("h3").innerText = "Resep tidak ditemukan";
+        emptyState.querySelector("p").innerText =
+            "Coba gunakan kata kunci lain atau bahan yang berbeda.";
+        emptyState.style.display = "block";
+    }
+});
+
+// Highlight keyword lebih pintar
+if (searchInput && searchInput.value) {
+    const keyword = searchInput.value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const regex = new RegExp(`(${keyword})`, "gi");
+
+    document.querySelectorAll(".card strong").forEach(el => {
+        el.innerHTML = el.textContent.replace(regex, "<mark>$1</mark>");
+    });
+}
+</script>
+<!-- improvement: ui search -->

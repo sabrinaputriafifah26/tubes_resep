@@ -102,6 +102,14 @@ form button:hover {
 .card-link:hover strong {
     color: #e60023;
 }
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-link:hover strong {
+    color: #e60023;
+}
 </style>
 
 <!-- JS TAMBAHAN (AMAN UNTUK TEST) -->

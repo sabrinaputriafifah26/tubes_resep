@@ -28,10 +28,12 @@ if ($query) {
 <!-- HASIL RESEP -->
 <div class="hasil">
 <?php foreach ($results as $resep): ?>
-    <div class="card">
-        <img src="<?= $resep['image']; ?>">
-        <strong><?= $resep['title']; ?></strong>
-    </div>
+    <a href="index.php?page=detail_resep&id=<?= $resep['id']; ?>" class="card-link">
+        <div class="card">
+            <img src="<?= $resep['image']; ?>">
+            <strong><?= $resep['title']; ?></strong>
+        </div>
+    </a>
 <?php endforeach; ?>
 </div>
 
@@ -91,6 +93,14 @@ form button:hover {
 .card img {
     width: 100%;
     border-radius: 8px;
+}
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-link:hover strong {
+    color: #e60023;
 }
 </style>
 

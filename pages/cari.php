@@ -35,8 +35,6 @@ if ($query) {
         </div>
     </a>
 <?php endforeach; ?>
-
-
 </div>
 
 <?php if ($query && empty($results)): ?>

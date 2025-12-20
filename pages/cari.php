@@ -35,6 +35,8 @@ if ($query) {
         </div>
     </a>
 <?php endforeach; ?>
+
+
 </div>
 
 <?php if ($query && empty($results)): ?>
@@ -89,12 +91,10 @@ form button:hover {
     transform: translateY(-4px);
     box-shadow: 0 6px 16px rgba(0,0,0,.1);
 }
-
 .card img {
     width: 100%;
     border-radius: 8px;
-}
-.card-link {
+}.card-link {
     text-decoration: none;
     color: inherit;
 }
@@ -102,14 +102,7 @@ form button:hover {
 .card-link:hover strong {
     color: #e60023;
 }
-.card-link {
-    text-decoration: none;
-    color: inherit;
-}
 
-.card-link:hover strong {
-    color: #e60023;
-}
 </style>
 
 <!-- JS TAMBAHAN (AMAN UNTUK TEST) -->

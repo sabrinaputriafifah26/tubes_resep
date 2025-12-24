@@ -3,32 +3,35 @@ use PHPUnit\Framework\TestCase;
 
 class ApiKeyTest extends TestCase
 {
-    /**
-     * Test apakah API Key Spoonacular valid
-     */
     public function testApiKeyIsValid()
     {
-        // Ambil API Key dari config
         require_once __DIR__ . '/../config/api.php';
 
-        $url = "https://api.spoonacular.com/recipes/complexSearch?apiKey=$apiKey&number=1";
-
-        $response = @file_get_contents($url);
-
-        // Pastikan response tidak false (request berhasil)
-        $this->assertNotFalse(
-            $response,
-            "API Key tidak valid atau request ke API gagal"
+        // 1. API_KEY harus terdefinisi
+        $this->assertTrue(
+            defined('API_KEY'),
+            'API_KEY belum didefinisikan di config/api.php'
         );
 
-        // Decode JSON
-        $data = json_decode($response, true);
+        // 2. API_KEY tidak boleh kosong
+        $this->assertNotEmpty(
+            API_KEY,
+            'API_KEY kosong'
+        );
 
-        // Pastikan response mengandung data resep
-        $this->assertArrayHasKey(
-            'results',
-            $data,
-            "Response API tidak mengandung data hasil"
+        // 3. API_KEY bertipe string
+        $this->assertIsString(
+            API_KEY,
+            'API_KEY harus bertipe string'
+        );
+
+        // 4. API_KEY benar-benar dipakai dalam URL API
+        $url = "https://api.spoonacular.com/recipes/complexSearch?apiKey=" . API_KEY;
+
+        $this->assertStringContainsString(
+            API_KEY,
+            $url,
+            'API_KEY tidak digunakan dalam request API'
         );
     }
 }

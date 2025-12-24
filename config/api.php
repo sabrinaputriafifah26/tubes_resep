@@ -1,3 +1,3 @@
 <?php
 define('API_BASE', 'https://api.spoonacular.com/recipes');
-define('API_KEY', '090234cadd724c11b16d53f262e65cb7');
+define('API_KEY', 'f72838f308d348b49c82b5e2bff6fabb');
